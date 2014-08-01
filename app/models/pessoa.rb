@@ -9,8 +9,8 @@ class Pessoa < ActiveRecord::Base
      validates_attachment atributo, size: { less_than: 2.megabytes }
    end
 
-   validates :nome, presence: true
-   validates :biografia, presence: true
+   validates :nome, :biografia, presence: true
+   validates_size_of :nome, maximum: 255
    validates :url_unica, presence: true, uniqueness: true
    validates_format_of :url_unica, with: /\A([A-Z][A-Z0-9_\-]{3,})\Z/i
    validates :email, presence: true, email: true

@@ -4,6 +4,9 @@ require "paperclip/matchers"
 RSpec.describe Pessoa, :type => :model do
   it "pessoa deve ter nome" do
     should validate_presence_of :nome
+    should allow_value("Lucas Cardoso de Araujo", "Marlon Henrique Scalabrin", "Jônatas Davi Paganini", "José Luiz Tafarel", "Lucas Rafagnin", "Mitrut", "Jack").for(:nome)
+    should_not allow_value("Podemos ver que foi gerada uma nova exceção dentro do bloco do rescue e apesar do comando final com a mensagem Fim de programa não ter sido impressa pois a exceção jogou o fluxo de processamento para fora, o bloco do ensure foi executado.Se por acaso desejarmos tentar executar o bloco que deu problema novamente, podemos utiliza", "Também podemos utilizar catch e throw para terminar o processamento quando nada mais é necessário, indicando através de um Symbol para onde o controle do código deve ser transferido        (opcionalmente com um valor), indicado com catch, usando throw").for(:nome)
+    should_not allow_value("P"*256, "a"*258).for(:nome)
   end
   it "pessoa deve ter biografia" do
     should validate_presence_of :biografia
