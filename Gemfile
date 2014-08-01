@@ -52,6 +52,8 @@ group :test do
   gem 'vcr',                  '2.9.2'
   gem 'webmock',              '1.18.0'
   gem 'database_cleaner',     '1.3.0'
+  gem 'autotest-rails'
+  gem 'ZenTest'
 end
 
 group :development, :test do
