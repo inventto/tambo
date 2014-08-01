@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Vitrine, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+   #it { should has_and_belongs_to_many(:categoria) }
+  it { should validate_presence_of(:nome) }
+  it { should validate_uniqueness_of(:nome) }
+  it { should have_attached_file(:imagem)}
+end 

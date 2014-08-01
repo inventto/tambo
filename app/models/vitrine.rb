@@ -1,5 +1,5 @@
 class Vitrine < ActiveRecord::Base
-  validates :nome, presence: true
+  validates :nome, presence: true, uniqueness: true
   has_and_belongs_to_many :categorias
 
   has_attached_file :imagem
