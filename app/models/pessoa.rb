@@ -6,6 +6,7 @@ class Pessoa < ActiveRecord::Base
 
    [:foto_perfil, :foto_capa].each do |atributo|
      validates_attachment_content_type atributo, :content_type => /\Aimage\/.*\Z/
+     validates_attachment atributo, size: { less_than: 2.megabytes }
    end
 
    validates :nome, presence: true
