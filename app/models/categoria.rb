@@ -5,6 +5,16 @@ class Categoria < ActiveRecord::Base
   has_attached_file :imagem
   validates_attachment_content_type :imagem, :content_type => /\Aimage\/.*\Z/
 
+  validates :nome, uniqueness: true, presence: true
+
+  validate :nao_permite_categoria_igual
+  
+  def nao_permite_categoria_igual
+    if categoria && categoria == self
+      self.errors.add(:categoria, "Uma categoria não pode ser filha dela mesma :(")
+    end
+  end
+
   def to_s
     nome
   end
