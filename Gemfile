@@ -44,6 +44,7 @@ end
 
 group :test do
   gem 'shoulda-matchers',     '2.6.1', require: false
+  gem 'shoulda'
   gem 'simplecov',            '0.8.2', require: false
   gem 'email_spec',           '1.6.0'
   gem 'capybara',             '2.4.1'
