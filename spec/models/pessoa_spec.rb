@@ -13,6 +13,8 @@ RSpec.describe Pessoa, :type => :model do
   end
   it "pessoa deve ter email" do
     should validate_presence_of :email
+    should allow_value("dev@invent.to","lucas@invent.to", "lucas.ca.de.araujo@gmail.com", "marlonscalabrin@yahoo.com.br").for(:email)
+    should_not allow_value("invent.to","lucas@invent","1-lucas@invent.to", "lucas.ca.de.araujo@", "http://marlonscalabrin@yahoo.com.br").for(:email)
   end
   it "pessoa deve estar realcionada com cidade" do
     should belong_to :cidade
