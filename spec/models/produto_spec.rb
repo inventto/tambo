@@ -18,12 +18,12 @@ RSpec.describe Produto, :type => :model do
   it "preco_promocional deve ser menor que o preco" do
     produto = FactoryGirl.create :produto
     expect(produto.errors)
-    #expect(produto.preco.to_f).to be > produto.preco_promocional.to_f
-    should(produto.preco > produto.preco_promocional)
+    expect(produto.preco.to_f).to be > produto.preco_promocional.to_f
+    #should(produto.preco > produto.preco_promocional)
   end
   it { should validate_presence_of :peso}
   it { should validate_numericality_of :peso}
   it { should validate_presence_of :quantidade_estoque }
   it { should validate_numericality_of :quantidade_estoque }
-  it { should validate_greater_then 0 }
+  it { should validate_greater_then 0,  }
 end
