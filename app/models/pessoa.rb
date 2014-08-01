@@ -12,8 +12,9 @@ class Pessoa < ActiveRecord::Base
    validates :nome, presence: true
    validates :biografia, presence: true
    validates :url_unica, presence: true, uniqueness: true
+   validates_format_of :url_unica, with: /\A([A-Z][A-Z0-9_\-]{3,})\Z/i
    validates :email, presence: true, email: true
-   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
    validates_associated :cidade
 
    belongs_to :cidade
