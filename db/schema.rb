@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725192031) do
+ActiveRecord::Schema.define(version: 20140725193014) do
+
+  create_table "artista_produtos", force: true do |t|
+    t.integer  "artista_id"
+    t.integer  "produto_id"
+    t.decimal  "preco"
+    t.integer  "prazo_producao_em_dias"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "artista_produtos", ["artista_id"], name: "index_artista_produtos_on_artista_id"
+  add_index "artista_produtos", ["produto_id"], name: "index_artista_produtos_on_produto_id"
 
   create_table "categoria", force: true do |t|
     t.string   "nome",                null: false
@@ -42,6 +54,18 @@ ActiveRecord::Schema.define(version: 20140725192031) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "fabrica_produtos", force: true do |t|
+    t.integer  "fabrica_id"
+    t.integer  "produto_id"
+    t.decimal  "preco"
+    t.integer  "prazo_producao_em_dias"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "fabrica_produtos", ["fabrica_id"], name: "index_fabrica_produtos_on_fabrica_id"
+  add_index "fabrica_produtos", ["produto_id"], name: "index_fabrica_produtos_on_produto_id"
 
   create_table "pessoas", force: true do |t|
     t.string   "nome",                     null: false
