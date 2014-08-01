@@ -7,6 +7,7 @@ class Produto < ActiveRecord::Base
   validates :preco_promocional, presence: true, numericality: true
   validate :preco_promocional_menor_que_preco
   validates :peso, presence: true, numericality: true
+  validates :quantidade_estoque, presence: true, numericality: true
 
   def preco_promocional_menor_que_preco
     if preco and preco_promocional and preco > preco_promocional
