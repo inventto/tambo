@@ -23,4 +23,6 @@ RSpec.describe Produto, :type => :model do
   end
   it { should validate_presence_of :peso}
   it { should validate_numericality_of :peso}
+  it { should validade_presence_of :quantidade_estoque }
+  it { should validade_numericality_of :quantidade_estoque }
 end
