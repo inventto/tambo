@@ -10,8 +10,8 @@ class Produto < ActiveRecord::Base
   validates :quantidade_estoque, presence: true, numericality: true
 
   def preco_promocional_menor_que_preco
-    if preco and preco_promocional and preco > preco_promocional
-      self.errors.add(:preco_promocional, "O preço promocional deve ser menor que o preço")
+    if preco and preco_promocional and preco < preco_promocional
+      self.errors.add(:preco_promocional, "deve ser menor que o preço")
     end
   end
 

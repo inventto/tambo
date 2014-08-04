@@ -7,7 +7,7 @@ FactoryGirl.define do
     descricao_artista "MyText"
     url_unica "ring"
     preco 10
-    preco_promocional 11
+    preco_promocional 9
     dimensoes "MyString"
     peso 1.5
     quantidade_estoque 1
