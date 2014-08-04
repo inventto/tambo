@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725193014) do
+ActiveRecord::Schema.define(version: 20140801135732) do
 
   create_table "artista_produtos", force: true do |t|
     t.integer  "artista_id"
@@ -50,7 +50,16 @@ ActiveRecord::Schema.define(version: 20140725193014) do
 
   create_table "cidades", force: true do |t|
     t.string   "nome"
-    t.string   "estado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "estado_id"
+  end
+
+  add_index "cidades", ["estado_id"], name: "index_cidades_on_estado_id"
+
+  create_table "estados", force: true do |t|
+    t.string   "nome"
+    t.string   "sigla"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

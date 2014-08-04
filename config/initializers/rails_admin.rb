@@ -1,4 +1,4 @@
-MODELOS = %w(Vitrine Cidade Categoria Pessoa Produto)
+MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto)
 RailsAdmin.config do |config|
 
   ### Popular gems integration
@@ -38,6 +38,7 @@ RailsAdmin.config do |config|
     config.model model do
       object_label_method do
         :to_s
+      
       end
     end
   end
