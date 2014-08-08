@@ -17,4 +17,10 @@ describe "produtos", :type => :feature do
       Produto.destroy_all
     end
   end
+  context "sem produtos" do
+    it "espera nao ter produtos" do
+      visit "/produtos"
+      expect(page).to have_content "Nenhum produto cadastrado"
+    end
+  end
 end
