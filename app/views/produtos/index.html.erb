@@ -10,7 +10,9 @@
       <% else %>
         <%= image_tag produto.imagens.first.anexo.url(:thumb) %>
       <% end %>
-    <%= link_to produto.nome, uniq_url_for(produto) %>
+      <span class="label produto"><%= link_to produto.nome, uniq_url_for(produto) %></span>
+      <br>
+      <span class="label produto-artista"><%= link_to produto.artista.nome, uniq_url_for(produto.artista) %></span>
   </div>
   <hr>
   <% end %>

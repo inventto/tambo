@@ -11,7 +11,7 @@ FactoryGirl.define do
     dimensoes "1x1x1"
     peso 1.5
     quantidade_estoque 1
-    artista nil
+    artista FactoryGirl.create(:pessoa)
     fabrica nil
   end
 end

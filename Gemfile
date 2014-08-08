@@ -59,7 +59,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails',   '4.4.1'
+  gem 'factory_girl_rails',   '4.4.1', require: false
   #gem 'pry-rails',            '0.3.2'
   gem 'dotenv-rails',         '0.11.1'
   gem 'awesome_print',        '1.2.0'
