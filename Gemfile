@@ -42,7 +42,7 @@ group :development do
   gem 'quiet_assets',         '1.0.3'
 end
 
-group :test do
+group :test do 
   gem 'shoulda-matchers',     '2.6.1', require: false
   gem 'shoulda'
   gem 'simplecov',            '0.8.2', require: false
@@ -58,7 +58,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails',          '3.0.1'
+  gem 'rspec-rails'
   gem 'factory_girl_rails',   '4.4.1'
   #gem 'pry-rails',            '0.3.2'
   gem 'dotenv-rails',         '0.11.1'

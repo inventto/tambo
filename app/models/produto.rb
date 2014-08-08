@@ -1,6 +1,8 @@
 class Produto < ActiveRecord::Base
   belongs_to :artista, class_name: 'Pessoa', foreign_key: "artista_id"
   belongs_to :fabrica, class_name: 'Pessoa', foreign_key: "fabrica_id"
+  has_many :imagens
+
   validates :nome, presence: true
   validates :url_unica, presence: true, uniqueness: true, format: { with: /\A[a-z0-9_\-]+\z/ }
   validates :preco, presence: true, numericality: true

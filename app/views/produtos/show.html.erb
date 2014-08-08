@@ -1,0 +1,7 @@
+<h1><%= @produto.nome %></h1>
+<% if @produto.imagens.blank? %>
+  <%= image_tag 'imagem_produto_default.png' %>
+<% else %>
+  <%= image_tag @produto.imagens.first.anexo.url(:default) %>
+<% end %>
+
