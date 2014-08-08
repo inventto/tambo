@@ -17,7 +17,7 @@ RailsAdmin.config do |config|
 
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.excluded_models += [CategoriaVitrine, FabricaProduto, ArtistaProduto]
+  config.excluded_models += [CategoriaVitrine]
 
   config.actions do
     dashboard                     # mandatory
@@ -38,7 +38,7 @@ RailsAdmin.config do |config|
     config.model model do
       object_label_method do
         :to_s
-      
+
       end
     end
   end

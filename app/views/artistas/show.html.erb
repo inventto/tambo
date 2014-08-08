@@ -1,4 +1,11 @@
+<%= image_tag(@artista.foto_perfil_file_name)  %>
+<%= content_tag(:p, @artista.nome)%>
+<%= content_tag(:p, @artista.email) %>
+<%= content_tag(:p, @artista.biografia) %>
 
-<% p @artista %>
-<h1><%= @artista.nome %></h1>
 <h2>Portfólio</h2>
+  <% for produto in @artista.produtos_artista do %>
+    Nome: <%= content_tag(:span, produto.nome) %> <br />
+    URL: /<%= content_tag(:span, produto.url_unica) %> <br />
+    Descrição: <%= content_tag(:span, produto.descricao) %> <br />
+<% end %>

@@ -24,7 +24,7 @@ RSpec.describe Pessoa, :type => :model do
   end
   it "pessoa deve estar relacionada com cidade" do
     should belong_to :cidade
-    #should validate_presence_of :cidade
+    should validate_assoaciated :cidade
   end
   it "pessoa deve ter imagem" do
     have_attached_file(:foto_perfil)

@@ -17,7 +17,7 @@ describe "artistas", :type => :feature do
         url_unica: "jonatasdp",
         cidade: Cidade.first, #FactoryGirl.create(:cidade),
         foto_perfil: File.new(Rails.root.join("spec/fixtures/jonatasdp.png"))
-      puts @pessoa.errors.full_messages
+     puts @pessoa.errors.full_messages
 
     end
     it "espera ver lista de artistas" do
@@ -31,5 +31,10 @@ describe "artistas", :type => :feature do
     after :all do
       Pessoa.where(url_unica: "jonatasdp").destroy_all
     end
+  end
+  it "com css" do
+    visit'tambo_lucas_artes'
+    expect(page).to have_content 'Artistas'
+    expect(page).to have_css("div.artista[object-id='#{@pessoa.id}']")
   end
 end

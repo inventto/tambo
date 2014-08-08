@@ -16,8 +16,13 @@ class Pessoa < ActiveRecord::Base
    validates :email, presence: true, email: true
    validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
    validates_associated :cidade
+   validates :cidade_id, presence: true
 
    belongs_to :cidade
+   has_many :produtos_artista, join_table: "artista_produtos", class_name: "ArtistaProduto", foreign_key: "artista_id"
+   has_many :produtos_fabrica, join_table: "fabrica_produtos", class_name: "FabricaProduto", foreign_key: "fabrica_id"
+   validates :produtos_fabrica, :produtos_artista, associated: true
+
    def to_s
      "#{nome} (#{url_unica})"
    end
