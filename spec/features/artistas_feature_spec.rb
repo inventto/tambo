@@ -1,4 +1,6 @@
 require "rails_helper"
+
+
 describe "artistas", :type => :feature do
   context "sem artistas no programa" do
     it "espera nao deve ver ninguem na lista" do
