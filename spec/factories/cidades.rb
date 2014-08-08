@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :cidade do
-    nome "MyString"
-    estado "MyString"
+    nome "Francisco Beltrão"
+    association Factory(:estado)
   end
 end

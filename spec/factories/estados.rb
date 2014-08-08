@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :estado do
-    nome "MyString"
-    sigla "MyString"
+    nome "Paraná"
+    sigla "PR"
   end
 end

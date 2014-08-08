@@ -2,12 +2,12 @@
 
 FactoryGirl.define do
   factory :pessoa do
-    nome "MyString"
-    biografia "MyText"
+    nome "Jônatas Davi Paganini"
+    biografia "Nerds life"
     iniciou_em "2014-07-25"
-    url_unica "MyString"
-    cidade "MyText"
-    foto_perfil ""
+    url_unica "jonatasdp"
+    cidade FactoryGirl.create(:cidade)
+    foto_perfil new File(Rails.root.join("spec/fixtures/jonatasdp.png"))
     foto_capa ""
   end
 end

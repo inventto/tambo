@@ -1,0 +1,13 @@
+<h1>Artistas</h1>
+<% if @artistas.empty? %>
+  <h1>Nenhum artista cadastrado</h1>
+<% else %>
+  <% for artista in @artistas do %>
+    <div class="artista" object-id="<%= artista.id %>">
+      <h2 class='nome'><%= artista.nome %></h2>
+      <p class='biografia'>
+        <%= artista.biografia %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
