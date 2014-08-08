@@ -6,8 +6,8 @@ FactoryGirl.define do
     biografia "Nerds life"
     iniciou_em "2014-07-25"
     url_unica "jonatasdp"
-    cidade FactoryGirl.create(:cidade)
-    foto_perfil new File(Rails.root.join("spec/fixtures/jonatasdp.png"))
+    #cidade FactoryGirl.create(:cidade)
+    foto_perfil File.new(Rails.root.join("spec/fixtures/jonatasdp.png"))
     foto_capa ""
   end
 end
