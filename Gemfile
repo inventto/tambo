@@ -48,6 +48,7 @@ group :test do
   gem 'simplecov',            '0.8.2', require: false
   gem 'email_spec',           '1.6.0'
   gem 'capybara',             '2.4.1'
+  gem 'selenium-webdriver'
   gem 'poltergeist',          '1.5.1'
   gem 'vcr',                  '2.9.2'
   gem 'webmock',              '1.18.0'
