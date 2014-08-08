@@ -1,0 +1,14 @@
+<h1>Produtos</h1>
+<div class='produtos'>
+<% for produto in @produtos %>
+  <div class='produto' object-id="<%= produto.id %>">
+    <% if produto.imagens.blank? %>
+      <%= image_tag 'imagem_produto_default.png' %>
+    <% else %>
+      <%= image_tag produto.imagens.first.anexo.url(:thumb) %>
+    <% end %>
+  <%= link_to produto.nome, uniq_url_for(produto) %>
+</div>
+<hr>
+<% end %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140801135732) do
+ActiveRecord::Schema.define(version: 20140808174018) do
 
   create_table "artista_produtos", force: true do |t|
     t.integer  "artista_id"
@@ -75,6 +75,18 @@ ActiveRecord::Schema.define(version: 20140801135732) do
 
   add_index "fabrica_produtos", ["fabrica_id"], name: "index_fabrica_produtos_on_fabrica_id"
   add_index "fabrica_produtos", ["produto_id"], name: "index_fabrica_produtos_on_produto_id"
+
+  create_table "imagens", force: true do |t|
+    t.integer  "produto_id"
+    t.string   "anexo_file_name"
+    t.string   "anexo_content_type"
+    t.integer  "anexo_file_size"
+    t.datetime "anexo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "imagens", ["produto_id"], name: "index_imagens_on_produto_id"
 
   create_table "pessoas", force: true do |t|
     t.string   "nome",                     null: false
