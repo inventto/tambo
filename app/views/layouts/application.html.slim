@@ -17,7 +17,7 @@ html lang="en"
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
-
+    = analytics_init if Rails.env.production?
 
 
   body
@@ -40,4 +40,4 @@ html lang="en"
         = yield
 
       footer
-        p &copy; Company 2014
+        p &copy; <a href="http://emporiotambo.com.br">Tambo</a> + <a href="http://invent.to">invent.to</a>. Estamos só começando :) Saiba mais <a href="http://projetogaleriatambo.wordpress.com/">aqui</a>. Sobre <a href="http://github.com/inventto/tambo">opensource</a> aqui.
