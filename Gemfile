@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-gem "sqlite3"
+gem "pg"
 gem "rails_admin"
 gem "paperclip"
 gem 'rails',                  '4.1.4'
@@ -10,7 +10,6 @@ gem 'secure_headers',         '1.2.0'
 gem 'jquery-rails',           '3.1.1'
 gem 'jbuilder',               '2.1.1'
 gem 'slim-rails',             '2.1.5'
-gem 'pg',                     '0.17.1'
 gem 'sass-rails',             '4.0.3'
 gem 'coffee-rails',           '4.0.1'
 gem 'uglifier',               '2.5.1'
