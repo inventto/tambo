@@ -1,11 +1,24 @@
-<%= image_tag(@artista.foto_perfil_file_name)  %>
-<%= content_tag(:p, @artista.nome)%>
+<div class="profile">
+  <%= image_tag(@artista.foto_perfil.url(:thumb)) %>
+  <span class="name" rel="author"><%= content_tag(:p, @artista.nome)%></span>
+</div>
 <%= content_tag(:p, @artista.email) %>
 <%= content_tag(:p, @artista.biografia) %>
 
 <h2>Portfólio</h2>
-  <% for produto in @artista.produtos_artista do %>
-    Nome: <%= content_tag(:span, produto.nome) %> <br />
-    URL: /<%= content_tag(:span, produto.url_unica) %> <br />
-    Descrição: <%= content_tag(:span, produto.descricao) %> <br />
+<% for produto_artista in @artista.produtos_artista do 
+  produto = produto_artista.produto %>
+<div class="row">
+  <div class="thumb">
+    <% if produto.imagens.empty? %>
+      <%= image_tag "imagem_produto_default.png"  %>
+    <% else %>
+      <%= image_tag produto.imagens.first.url(:thumb)  %>
+    <% end %>
+    <span class="thumb-title"><%= content_tag(:span, produto.nome) %></span>
+  </div>
+  <div class="description">
+    <%= produto.descricao  %>
+  </div>
+</div>
 <% end %>
