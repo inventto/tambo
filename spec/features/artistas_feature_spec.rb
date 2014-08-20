@@ -10,12 +10,13 @@ describe "artistas", :type => :feature do
   end
   context "com artistas no programa" do
     before :all do
+      cidade = Cidade.first || FactoryGirl.create(:cidade)
       @pessoa = Pessoa.create nome: "Jônatas Davi Paganini",
         biografia: "Nerds life",
         iniciou_em: "2014-07-25",
         email: "jonatasdp@gmail.com",
         url_unica: "jonatasdp",
-        cidade: Cidade.first, #FactoryGirl.create(:cidade),
+        cidade: cidade,
         foto_perfil: File.new(Rails.root.join("spec/fixtures/jonatasdp.png"))
      puts @pessoa.errors.full_messages
 
@@ -31,10 +32,10 @@ describe "artistas", :type => :feature do
     after :all do
       Pessoa.where(url_unica: "jonatasdp").destroy_all
     end
-  end
-  it "com css" do
-    visit'tambo_lucas_artes'
-    expect(page).to have_content 'Artistas'
-    expect(page).to have_css("div.artista[object-id='#{@pessoa.id}']")
+    it "com css" do
+      visit'tambo_lucas_artes'
+      expect(page).to have_content 'Artistas'
+      expect(page).to have_css("div.artista[object-id='#{@pessoa.id}']")
+    end
   end
 end
