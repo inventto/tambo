@@ -9,7 +9,7 @@ html lang="en"
 
     /! Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
-      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "application", :media => "all"
     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
@@ -27,17 +27,19 @@ html lang="en"
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand href="#"Tambo
+          a.navbar-brand href="/"
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
               li= link_to "Produtos", "/produtos"
               li= link_to "Artistas", "/artistas"
               li= link_to "Admin", "/admin"
-
+            ul.nav.navbar-nav.navbar-right.loginarea
+             li= link_to "Registrar", "/"
+             li= link_to "Login", "/"
+    = yield :capa
     .container
       .row
         = bootstrap_flash
         = yield
-
-      footer
-        p &copy; <a href="http://emporiotambo.com.br">Tambo</a> + <a href="http://invent.to">invent.to</a>. Estamos só começando :) Saiba mais <a href="http://projetogaleriatambo.wordpress.com/">aqui</a>. Sobre <a href="http://github.com/inventto/tambo">opensource</a> aqui.
+    .footer
+      =render partial: "home/footer"
