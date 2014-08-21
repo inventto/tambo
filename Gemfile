@@ -4,6 +4,7 @@ ruby '2.1.2'
 gem "pg"
 gem "rails_admin"
 gem "paperclip"
+gem "brazilian-rails"
 gem 'rails',                  '4.1.4'
 gem 'puma',                   '2.8.2'
 gem 'secure_headers',         '1.2.0'

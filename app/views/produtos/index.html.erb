@@ -1,18 +1,28 @@
 <h1>Produtos</h1>
-<div class='produtos'>
-<% if @produtos.blank? %>
-  <h2>Nenhum produto cadastrado</h2>
-<% else %>
-  <% for produto in @produtos %>
-    <div class='produto' object-id="<%= produto.id %>">
-      <% if produto.imagens.blank? %>
-        <%= image_tag 'imagem_produto_default.png' %>
-      <% else %>
-        <%= image_tag produto.imagens.first.anexo.url(:thumb) %>
+<div class='produtos span9'>
+  <% if @produtos.blank? %>
+    <h2>Nenhum produto cadastrado</h2>
+  <% else %>
+    <div class="row">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/produtos" class="active">Produtos</a></li>
+      </ol>
+      <% for produto in @produtos %>
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag(produto.imagens.first.anexo.url(:thumb)) %>
+            <div class="caption">
+              <%= content_tag(:h3,produto.nome) %>
+              <p>Por <i class="small"><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></i></p>
+              <p>
+                <%= link_to("Ver mais", produto.url_unica, class:"btn btn-primary", role: "button") %>
+                <%= content_tag(:span, "R$ #{produto.preco.reais}", class: "badge price") %>
+              </p>
+            </div>
+          </div>
+        </div>
       <% end %>
-    <%= link_to produto.nome, uniq_url_for(produto) %>
-  </div>
-  <hr>
+    </div>
   <% end %>
-<% end %>
 </div>
