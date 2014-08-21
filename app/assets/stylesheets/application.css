@@ -22,8 +22,40 @@
    padding:0.5%;
  }
  .navbar-nav{
-   margin-left:5%;
+   margin-left:2%;
  }
- .navbar-brand a{
-   background: url("../assets/images/logo.png");
+ .navbar-brand{
+   width:250px !important;
+   background: url("/assets/logo.png") no-repeat;
+   background-size: contains;
+   float:left;
  }
+.loginarea li a{
+  color:#4AA3DF !important;
+}
+.loginarea li a:hover{
+  color:#008CBA !important;
+}
+.btn-primary{
+  background:#AA00FF;
+  border-color:#AA00FF;
+}
+.btn-primary:hover{
+  transition: 0.8s ease;
+  background:#DB0CE8;
+  border-color:#DB0CE8;
+}
+.caption h4{
+  font-weight:bold;
+}
+
+#home_carousel img{
+  width:100%;
+}
+.thumbnail img{
+  width:242px;
+  height:200px;
+  border-radius:5px;
+  margin-top:5px;
+
+}
