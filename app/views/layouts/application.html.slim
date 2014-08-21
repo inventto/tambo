@@ -36,11 +36,10 @@ html lang="en"
             ul.nav.navbar-nav.navbar-right.loginarea
              li= link_to "Registrar", "/"
              li= link_to "Login", "/"
-    = yield :capa         
+    = yield :capa
     .container
       .row
         = bootstrap_flash
         = yield
-
-      footer
-        p &copy; <a href="http://emporiotambo.com.br">Tambo</a> + <a href="http://invent.to">invent.to</a>. Estamos só começando :) Saiba mais <a href="http://projetogaleriatambo.wordpress.com/">aqui</a>. Sobre <a href="http://github.com/inventto/tambo">opensource</a> aqui.
+    .footer
+      =render partial: "home/footer"
