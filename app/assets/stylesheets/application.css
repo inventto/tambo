@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ ul.nav.navbar-nav{
+   font-weight:bold;
+   color:#8285A0;
+  font-size:14px;
+ }
+ .navbar{
+   padding:0.5%;
+ }
+ .navbar-nav{
+   margin-left:5%;
+ }
+ .navbar-brand a{
+   background: url("../assets/images/logo.png");
+ }
