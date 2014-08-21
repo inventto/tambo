@@ -31,6 +31,7 @@ group :production, :staging do
   gem 'rack-timeout',         github: 'kch/rack-timeout', ref: '83ca9f5141c1fdcb626820b1601c406e3a3a560a'
   gem 'newrelic_rpm',         '3.9.0.229'
   gem 'rollbar',              '0.13.1'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 end
 
 group :development do
