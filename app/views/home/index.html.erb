@@ -52,8 +52,7 @@
             <%= image_tag(produto.imagens.first.anexo.url(:thumb)) %>
             <div class="caption">
               <%= content_tag(:h3,produto.nome) %>
-              <h4>Artesão incrível</h4>
-              <h4><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
+              <h4 class="nome_artista_home"><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
               <p><%= produto.descricao  %></p>
               <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
             </div>
