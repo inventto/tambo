@@ -87,5 +87,6 @@ Rails.application.configure do
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
       }
   }
+  puts "paperclip conf: #{ config.paperclip_defaults.inspect } "
 end
 GA.tracker = "UA-38318580-4"
