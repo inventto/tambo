@@ -4,6 +4,8 @@ html lang="en"
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" /
+
     title= content_for?(:title) ? yield(:title) : "Tambo"
     = csrf_meta_tags
 
@@ -11,10 +13,10 @@ html lang="en"
     /[if lt IE 9]
     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "application", :media => "all"
-    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
-    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
-    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
-    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag  asset_path('/assets/favicon.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag  asset_path('apple-touch-icon-114x114-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag  asset_path('apple-touch-icon-asset_path72x72-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag  asset_path('apple-touch-icon-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
     = analytics_init if Rails.env.production?
@@ -32,8 +34,12 @@ html lang="en"
             ul.nav.navbar-nav
               li= link_to "Produtos", "/produtos"
               li= link_to "Artistas", "/artistas"
-              li= link_to "Admin", "/admin"
+              li= link_to "Quem é Tambo?", "/"
             ul.nav.navbar-nav.navbar-right.loginarea
+             form.navbar-form.navbar-left role="search"
+              .form-group
+                input.form-control placeholder="Busca" type="text"
+                  button.btn.btn-default type="submit" GO
              li= link_to "Registrar", "/"
              li= link_to "Login", "/"
     = yield :capa

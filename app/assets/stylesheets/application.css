@@ -31,26 +31,28 @@
    float:left;
  }
 .loginarea li a{
-  color:#4AA3DF !important;
+  color:#E74C3C !important;
 }
 .loginarea li a:hover{
-  color:#008CBA !important;
+  color:#C0392B !important;
 }
 .btn-primary{
-  background:#AA00FF;
-  border-color:#AA00FF;
+  background:#E74C3C;
+  border-color:#E74C3C;
 }
 .btn-primary:hover{
   transition: 0.8s ease;
-  background:#DB0CE8;
-  border-color:#DB0CE8;
+  background:#C0392B;
+  border-color:#C0392B;
 }
 .caption h4{
   font-weight:bold;
+  color:#C0392B;
 }
 
 #wide{
   width:100%;
+  margin-top:-20px;
 }
 #wide img{
   width:100% !important  ;
@@ -72,7 +74,6 @@ footer{
 
     /* CUSTOMIZE THE CAROUSEL
     -------------------------------------------------- */
-
     .carousel {
       margin-bottom: 60px;
     }
