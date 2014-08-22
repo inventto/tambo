@@ -4,17 +4,15 @@
 <% else %>
   <div class="col-xs-5">
     <div class="thumbnail">
-      <%= show_first_image_or_default_for(@produto) %>
+      <%= show_first_image_or_default_for(@produto, class: "main-image") %>
       <div class="caption">
         <%= content_tag(:h3,@produto.nome) %>
         <h4><%= link_to(@produto.artista.nome, @produto.artista.url_unica)  %></h4>
         <p><%= @produto.descricao  %></p>
         <div class="row">
-          <div class="small">
-            <% for image in @produto.imagens  %>
-              <%= image_tag(image.anexo.url(:small_thumb)) %>
-            <% end  %>
-          </div>
+          <% for image in @produto.imagens  %>
+             <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded"), "#", action: "see", normal: image.anexo.url(:default), class: "small") %>
+          <% end  %>
         </div>
       </div>
     </div>
