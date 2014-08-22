@@ -395,7 +395,7 @@ DEPENDENCIES
   rack-canonical-host (= 0.1.0)
   rack-timeout!
   rails (= 4.1.4)
-  rails_12factor
+  rails_12factor (= 0.0.2)
   rails_admin
   refills (= 0.0.2)
   rollbar (= 0.13.1)
