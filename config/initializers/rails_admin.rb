@@ -1,43 +1,3 @@
-require "rails_admin_jcrop"
-require 'rails_admin/config/actions'
-require 'rails_admin/config/actions/base'
-require 'rails_admin/config/fields'
-require 'rails_admin/config/fields/types/file_upload'
-
-module RailsAdmin
-  module Config
-    module Fields
-      module Types
-        class JcropPapperclip < RailsAdmin::Config::Fields::Types::Paperclip
-          RailsAdmin::Config::Fields::Types::register(self)
-
-          register_instance_option(:partial) do
-            :form_jcrop
-          end
-
-          register_instance_option(:jcrop_options) do
-            {}
-          end
-
-          register_instance_option(:fit_image) do
-            @fit_image ||= false
-          end
-
-          include ::RailsAdmin::Config::Fields::Types::UploaderMethods
-        end
-      end
-    end
-  end
-end
-
-RailsAdmin::Config::Fields.register_factory do |parent, properties, fields|
-  if (properties.respond_to?(:name) ? properties.name : properties[:name]) == :jcrop
-    fields << RailsAdmin::Config::Fields::Types::JcropPapperclip.new(parent, :jcrop, properties)
-    true
-  else
-    false
-  end
-end
 MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto Colecao)
 
 RailsAdmin.config do |config|
@@ -83,6 +43,7 @@ RailsAdmin.config do |config|
       end
     end
   end
+=begin
   config.model Pessoa do
     configure :foto_capa, :jcrop
     edit do
@@ -108,4 +69,5 @@ RailsAdmin.config do |config|
       jcrop_options aspectRatio: 1
     end
   end
+=end
 end

@@ -24,7 +24,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'redcarpet'
-gem 'rails_admin_jcrop'
+#gem 'rails_admin_jcrop'
 
 group :production, :staging do
   gem 'google-analytics-rails'
