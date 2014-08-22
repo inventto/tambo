@@ -1,3 +1,5 @@
+require "redcarpet"
+
 module ApplicationHelper
   def uniq_url_for(object)
     object.url_unica
@@ -9,6 +11,9 @@ module ApplicationHelper
       end
       super(name, opts)
     end
+  end
+  def markdown(text)
+   Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true).render(text).html_safe
   end
   def show_first_image_or_default_for(produto, opts={})
     src =

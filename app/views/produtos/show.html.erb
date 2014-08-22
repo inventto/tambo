@@ -8,7 +8,6 @@
       <div class="caption">
         <%= content_tag(:h3,@produto.nome) %>
         <h4><%= link_to(@produto.artista.nome, @produto.artista.url_unica)  %></h4>
-        <p><%= @produto.descricao  %></p>
         <div class="row">
           <% for image in @produto.imagens  %>
              <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded"), "#", action: "see", normal: image.anexo.url(:default), class: "small") %>
@@ -19,6 +18,9 @@
   </div>
   <div class="col-xs-5">
         <p><%= link_to("Comprar", "#", class:"btn btn-primary", role: "button", action: "comprar") %></p>
+  </div>
+  <div class="row">
+    <%= markdown(@produto.descricao)  %>
   </div>
 <% end %>
 

@@ -53,7 +53,7 @@
             <div class="caption">
               <%= content_tag(:h3,produto.nome) %>
               <h4 class="nome_artista_home"><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
-              <p><%= produto.descricao  %></p>
+              <p><%= produto.conceito %></p>
               <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
             </div>
           </div>
