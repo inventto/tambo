@@ -1,4 +1,4 @@
-MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto Colecao)
+MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto Colecao FabricaProduto ArtistaProduto)
 
 RailsAdmin.config do |config|
 
