@@ -40,6 +40,9 @@ GEM
     autotest-rails (4.2.1)
       ZenTest (~> 4.5)
     awesome_print (1.2.0)
+    aws-sdk (1.51.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -364,6 +367,7 @@ DEPENDENCIES
   ZenTest
   autotest-rails
   awesome_print (= 1.2.0)
+  aws-sdk
   better_errors (= 1.1.0)
   binding_of_caller (= 0.7.2)
   bitters (= 0.10.0)
