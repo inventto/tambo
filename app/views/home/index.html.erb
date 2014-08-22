@@ -1,8 +1,45 @@
-    <%content_for :capa do%>
-      <div id="wide">
-        <%= image_tag(asset_path("exemplo1.jpg"))  %>
+<%content_for :capa do%>
+  <div id="wide">
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <%= image_tag(asset_path("exemplo1.jpg"))  %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Bem vindo ao Empório Tambo.</h1>
+              <p class="lead">Descrição geral do que o site faz</p>
+              <a class="btn btn-large btn-primary" href="#">Registre-se!</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag(asset_path("exemplo2.jpg"))  %>
+          <div class="container">
+            <div class="carousel-caption text-centered">
+              <h1>Produtos feitos com o coração.</h1>
+              <p class="lead">Contato direto com o artesão para melhores produtos</p>
+              <a class="btn btn-large btn-primary" href="#">Descubra</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag(asset_path("exemplo3.jpg"))  %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Eu não sabia mais o que colocar nesse slide.</h1>
+              <p class="lead">Então coloquei esse texto para testar :P</p>
+              <a class="btn btn-large btn-primary" href="#">Clique aqui!</a>
+            </div>
+          </div>
+        </div>
       </div>
-    <%end%>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"> </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"> </a>
+    </div><!-- /.carousel -->
+  </div>
+<%end%>
 
 
 <div class="vitrine1">
