@@ -5,6 +5,8 @@ html lang="en"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" /
+    link href="http://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css" /
+
 
     title= content_for?(:title) ? yield(:title) : "Tambo"
     = csrf_meta_tags
@@ -19,6 +21,7 @@ html lang="en"
     = favicon_link_tag  asset_path('apple-touch-icon-precomposed.png'), :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
+
     = analytics_init if Rails.env.production?
 
 
