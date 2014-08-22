@@ -49,10 +49,9 @@
       <% for produto in categoria.produtos  %>
         <div class="col-sm-5 col-md-3">
           <div class="thumbnail">
-            <%= image_tag(produto.imagens.first.anexo.url(:thumb)) %>
+            <%= show_first_image_or_default_for(produto) %>
             <div class="caption">
               <%= content_tag(:h3,produto.nome) %>
-              <h4>Artesão incrível</h4>
               <h4><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
               <p><%= produto.descricao  %></p>
               <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
