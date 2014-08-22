@@ -1,4 +1,45 @@
-MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto)
+require "rails_admin_jcrop"
+require 'rails_admin/config/actions'
+require 'rails_admin/config/actions/base'
+require 'rails_admin/config/fields'
+require 'rails_admin/config/fields/types/file_upload'
+
+module RailsAdmin
+  module Config
+    module Fields
+      module Types
+        class JcropPapperclip < RailsAdmin::Config::Fields::Types::Paperclip
+          RailsAdmin::Config::Fields::Types::register(self)
+
+          register_instance_option(:partial) do
+            :form_jcrop
+          end
+
+          register_instance_option(:jcrop_options) do
+            {}
+          end
+
+          register_instance_option(:fit_image) do
+            @fit_image ||= false
+          end
+
+          include ::RailsAdmin::Config::Fields::Types::UploaderMethods
+        end
+      end
+    end
+  end
+end
+
+RailsAdmin::Config::Fields.register_factory do |parent, properties, fields|
+  if (properties.respond_to?(:name) ? properties.name : properties[:name]) == :jcrop
+    fields << RailsAdmin::Config::Fields::Types::JcropPapperclip.new(parent, :jcrop, properties)
+    true
+  else
+    false
+  end
+end
+MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto Colecao)
+
 RailsAdmin.config do |config|
 
   ### Popular gems integration
@@ -17,7 +58,7 @@ RailsAdmin.config do |config|
 
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.excluded_models += [CategoriaVitrine]
+  config.excluded_models += [CategoriaVitrine, ColecaoProduto]
 
   config.actions do
     dashboard                     # mandatory
@@ -40,6 +81,31 @@ RailsAdmin.config do |config|
         :to_s
 
       end
+    end
+  end
+  config.model Pessoa do
+    configure :foto_capa, :jcrop
+    edit do
+      field :foto_capa do
+        jcrop_options aspectRatio: 16.0 / 9.0
+      end
+      field :foto_perfil do
+        jcrop_options aspectRatio: 1
+      end
+    end
+  end
+  [Categoria, Colecao, Vitrine].each do |model|
+    config.model model do
+      configure :imagem, :jcrop
+      field :imagem do
+        jcrop_options aspectRatio: 1
+      end
+    end
+  end
+  config.model Imagem do
+    configure :anexo, :jcrop
+    field :anexo do
+      jcrop_options aspectRatio: 1
     end
   end
 end

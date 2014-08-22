@@ -43,21 +43,25 @@
 
 
 <div class="vitrine1">
+  <h1>Vitrines</h1>
   <% for categoria in @categorias  %>
     <h2><%= categoria.nome  %></h2>
     <div class="row">
       <% for produto in categoria.produtos  %>
-        <div class="col-sm-5 col-md-3">
-          <div class="thumbnail">
-            <%= show_first_image_or_default_for(produto) %>
-            <div class="caption">
-              <%= content_tag(:h3,produto.nome) %>
-              <h4 class="nome_artista_home"><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
-              <p><%= produto.conceito %></p>
-              <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
-            </div>
-          </div>
-        </div>
+        <%= render 'ver_detalhes_produto', locals: {produto: produto } %>
+      <% end  %>
+    </div>
+  <% end  %>
+</div>
+
+<div class="vitrine2">
+  <h1>Coleções</h1>
+  <% for colecao in @colecoes  %>
+    <h2><%= colecao.nome  %></h2>
+    <%= image_tag colecao.imagem.url(:thumb ) %>
+    <div class="row">
+      <% for produto in colecao.produtos  %>
+        <%= render 'ver_detalhes_produto', locals: {produto: produto } %>
       <% end  %>
     </div>
   <% end  %>

@@ -6,3 +6,13 @@ if Rails.env.production?
     "#{att.s3_protocol}://#{Paperclip::Attachment.default_options[:s3_host_name]}/#{att.bucket_name}/#{att.path(style)}"
   end
 end
+
+DEFAULT_OPTS_FOR_PAPPER_CLIP = { 
+  styles: {
+    big:      "1000x1000",
+    default:  "500x500",
+    thumb:    "256x256",
+    small_thumb: "128x128" 
+  },
+ default_url: "/images/:style/missing.png"
+}

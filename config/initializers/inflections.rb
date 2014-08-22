@@ -8,6 +8,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
    #inflect.singular /^x)en/i, '\1'
    inflect.irregular 'produto_artista', 'produtos_artistas'
    inflect.irregular 'imagem', 'imagens'
+   inflect.irregular 'colecao', 'colecoes'
+   inflect.irregular 'colecao_produto', 'colecoes_produtos'
 #   inflect.uncountable %w( fish sheep )
  end
 

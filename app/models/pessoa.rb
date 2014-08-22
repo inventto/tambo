@@ -1,8 +1,8 @@
 # encoding: utf-8
 class Pessoa < ActiveRecord::Base
 
-   has_attached_file :foto_perfil, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-   has_attached_file :foto_capa, :styles => { :medium => "500x830>", :thumb => "50x83>" }, :default_url => "/images/:style/missing.png"
+   has_attached_file :foto_perfil, DEFAULT_OPTS_FOR_PAPPER_CLIP
+   has_attached_file :foto_capa, DEFAULT_OPTS_FOR_PAPPER_CLIP
 
    [:foto_perfil, :foto_capa].each do |atributo|
      validates_attachment_content_type atributo, :content_type => /\Aimage\/.*\Z/
