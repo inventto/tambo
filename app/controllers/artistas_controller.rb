@@ -5,6 +5,7 @@ class ArtistasController < ApplicationController
 
   def show
     @artista = Pessoa.find(params[:id])
-    render :show, locals: {artista: @artista}
+    render :show
   end
+
 end

@@ -4,8 +4,9 @@
 <% else %>
   <% for artista in @artistas do %>
     <div class="artista" object-id="<%= artista.id %>">
+      <%= image_tag(artista.foto_perfil.url(:thumb))  %>
       <h2 class='nome'><a href="/<%= uniq_url_for(artista) %>"><%= artista.nome %></a></h2>
-      <p class='biografia'>
+      <p class='well'>
         <%= artista.biografia %>
       </p>
     </div>

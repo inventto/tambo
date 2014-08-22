@@ -1,17 +1,16 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-gem "sqlite3"
+gem "pg"
 gem "rails_admin"
 gem "paperclip"
+gem "brazilian-rails"
 gem 'rails',                  '4.1.4'
 gem 'puma',                   '2.8.2'
 gem 'secure_headers',         '1.2.0'
 gem 'jquery-rails',           '3.1.1'
-gem 'turbolinks',             '2.2.2'
 gem 'jbuilder',               '2.1.1'
 gem 'slim-rails',             '2.1.5'
-gem 'pg',                     '0.17.1'
 gem 'sass-rails',             '4.0.3'
 gem 'coffee-rails',           '4.0.1'
 gem 'uglifier',               '2.5.1'
@@ -21,13 +20,17 @@ gem 'bourbon',                '3.2.3'
 gem 'neat',                   '1.5.1'
 gem 'bitters',                '0.10.0'
 gem 'refills',                '0.0.2'
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 
 group :production, :staging do
-  gem 'rails_12factor',       '0.0.2'
+  gem 'google-analytics-rails'
   gem 'rack-canonical-host',  '0.1.0'
   gem 'rack-timeout',         github: 'kch/rack-timeout', ref: '83ca9f5141c1fdcb626820b1601c406e3a3a560a'
   gem 'newrelic_rpm',         '3.9.0.229'
   gem 'rollbar',              '0.13.1'
+  gem 'rails_12factor'
 end
 
 group :development do

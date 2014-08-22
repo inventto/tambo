@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808174018) do
+ActiveRecord::Schema.define(version: 20140821201851) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "artista_produtos", force: true do |t|
     t.integer  "artista_id"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.datetime "updated_at"
   end
 
-  add_index "artista_produtos", ["artista_id"], name: "index_artista_produtos_on_artista_id"
-  add_index "artista_produtos", ["produto_id"], name: "index_artista_produtos_on_produto_id"
+  add_index "artista_produtos", ["artista_id"], name: "index_artista_produtos_on_artista_id", using: :btree
+  add_index "artista_produtos", ["produto_id"], name: "index_artista_produtos_on_produto_id", using: :btree
 
   create_table "categoria", force: true do |t|
     t.string   "nome",                null: false
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.datetime "updated_at"
   end
 
-  add_index "categoria", ["categoria_id"], name: "index_categoria_on_categoria_id"
+  add_index "categoria", ["categoria_id"], name: "index_categoria_on_categoria_id", using: :btree
 
   create_table "categoria_vitrines", force: true do |t|
     t.integer  "categoria_id"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.datetime "updated_at"
   end
 
-  add_index "categoria_vitrines", ["categoria_id"], name: "index_categoria_vitrines_on_categoria_id"
-  add_index "categoria_vitrines", ["vitrine_id"], name: "index_categoria_vitrines_on_vitrine_id"
+  add_index "categoria_vitrines", ["categoria_id"], name: "index_categoria_vitrines_on_categoria_id", using: :btree
+  add_index "categoria_vitrines", ["vitrine_id"], name: "index_categoria_vitrines_on_vitrine_id", using: :btree
 
   create_table "cidades", force: true do |t|
     t.string   "nome"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.integer  "estado_id"
   end
 
-  add_index "cidades", ["estado_id"], name: "index_cidades_on_estado_id"
+  add_index "cidades", ["estado_id"], name: "index_cidades_on_estado_id", using: :btree
 
   create_table "estados", force: true do |t|
     t.string   "nome"
@@ -73,8 +76,8 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.datetime "updated_at"
   end
 
-  add_index "fabrica_produtos", ["fabrica_id"], name: "index_fabrica_produtos_on_fabrica_id"
-  add_index "fabrica_produtos", ["produto_id"], name: "index_fabrica_produtos_on_produto_id"
+  add_index "fabrica_produtos", ["fabrica_id"], name: "index_fabrica_produtos_on_fabrica_id", using: :btree
+  add_index "fabrica_produtos", ["produto_id"], name: "index_fabrica_produtos_on_produto_id", using: :btree
 
   create_table "imagens", force: true do |t|
     t.integer  "produto_id"
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.datetime "updated_at"
   end
 
-  add_index "imagens", ["produto_id"], name: "index_imagens_on_produto_id"
+  add_index "imagens", ["produto_id"], name: "index_imagens_on_produto_id", using: :btree
 
   create_table "pessoas", force: true do |t|
     t.string   "nome",                     null: false
@@ -107,7 +110,7 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.integer  "cidade_id"
   end
 
-  add_index "pessoas", ["cidade_id"], name: "index_pessoas_on_cidade_id"
+  add_index "pessoas", ["cidade_id"], name: "index_pessoas_on_cidade_id", using: :btree
 
   create_table "produtos", force: true do |t|
     t.string   "nome",               null: false
@@ -123,10 +126,12 @@ ActiveRecord::Schema.define(version: 20140808174018) do
     t.integer  "fabrica_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "categoria_id"
   end
 
-  add_index "produtos", ["artista_id"], name: "index_produtos_on_artista_id"
-  add_index "produtos", ["fabrica_id"], name: "index_produtos_on_fabrica_id"
+  add_index "produtos", ["artista_id"], name: "index_produtos_on_artista_id", using: :btree
+  add_index "produtos", ["categoria_id"], name: "index_produtos_on_categoria_id", using: :btree
+  add_index "produtos", ["fabrica_id"], name: "index_produtos_on_fabrica_id", using: :btree
 
   create_table "vitrines", force: true do |t|
     t.string   "nome"

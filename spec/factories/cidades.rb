@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :cidade do
     nome "Francisco Beltrão"
-    association Factory(:estado)
+    estado
   end
 end

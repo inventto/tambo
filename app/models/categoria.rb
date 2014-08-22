@@ -1,5 +1,6 @@
 class Categoria < ActiveRecord::Base
   belongs_to :categoria
+  has_many :produtos
   has_and_belongs_to_many :vitrines
 
   has_attached_file :imagem

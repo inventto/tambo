@@ -6,6 +6,7 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
    inflect.plural /([^aeiouãé][aeiou])$/i, '\1s'
    #inflect.singular /^x)en/i, '\1'
+   inflect.irregular 'produto_artista', 'produtos_artistas'
    inflect.irregular 'imagem', 'imagens'
 #   inflect.uncountable %w( fish sheep )
  end

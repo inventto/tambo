@@ -1,0 +1,28 @@
+    <%content_for :capa do%>
+      <div id="wide">
+        <img src="/assets/exemplo1.jpg">
+      </div>
+    <%end%>
+
+
+<div class="vitrine1">
+  <% for categoria in @categorias  %>
+    <h2><%= categoria.nome  %></h2>
+    <div class="row">
+      <% for produto in categoria.produtos  %>
+        <div class="col-sm-5 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag(produto.imagens.first.anexo.url(:thumb)) %>
+            <div class="caption">
+              <%= content_tag(:h3,produto.nome) %>
+              <h4>Artesão incrível</h4>
+              <h4><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
+              <p><%= produto.descricao  %></p>
+              <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
+            </div>
+          </div>
+        </div>
+      <% end  %>
+    </div>
+  <% end  %>
+</div>
