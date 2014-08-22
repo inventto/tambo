@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821201851) do
+ActiveRecord::Schema.define(version: 20140822194312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20140821201851) do
   create_table "produtos", force: true do |t|
     t.string   "nome",               null: false
     t.text     "descricao"
-    t.text     "descricao_artista"
+    t.text     "conceito"
     t.string   "url_unica",          null: false
     t.decimal  "preco"
     t.decimal  "preco_promocional"

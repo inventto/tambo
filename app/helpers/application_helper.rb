@@ -1,3 +1,5 @@
+require "redcarpet"
+
 module ApplicationHelper
   def uniq_url_for(object)
     object.url_unica
@@ -10,13 +12,16 @@ module ApplicationHelper
       super(name, opts)
     end
   end
-  def show_first_image_or_default_for(produto)
+  def markdown(text)
+   Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true).render(text).html_safe
+  end
+  def show_first_image_or_default_for(produto, opts={})
     src =
       if not produto.imagens.blank?
         produto.imagens.first.anexo.url(:thumb)
       else
         'imagem_produto_default.png'
       end
-    image_tag(src)
+    image_tag(src, opts)
   end
 end
