@@ -24,6 +24,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'redcarpet'
+gem 'lazy_high_charts'
 #gem 'rails_admin_jcrop'
 
 group :production, :staging do
@@ -47,7 +48,7 @@ group :development do
   gem 'quiet_assets',         '1.0.3'
 end
 
-group :test do 
+group :test do
   gem 'shoulda-matchers',     '2.6.1', require: false
   gem 'shoulda'
   gem 'simplecov',            '0.8.2', require: false

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'artistas/show'
 
   get 'produtos' => "produtos#index"
+
+  get 'chart' => "artistas#chart"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get ':uniq_url' => "uniq#show"
   # The priority is based upon order of creation: first created -> highest priority.
