@@ -1,31 +1,23 @@
 <div class="page_title container-fluid">
   <h1>Artistas</h1>
 </div>
-<div class="artists">
-
 <% if @artistas.empty? %>
   <h1>Nenhum artista cadastrado</h1>
 <% else %>
-  <% for artista in @artistas do %>
-        <div class="row">
-          <div class="col-sm-4 col-md-4">
-            <div class="thumbnail">
-              <div class="artista" object-id="<%= artista.id %>">
-                  <%= image_tag(artista.foto_perfil.url(:thumb))  %>
-                <div class="caption">
-                  <h3 class='nome_artista_home'><a href="/<%= uniq_url_for(artista) %>"><%= artista.nome %></a></h3>
-                    <p class='well'>
-                      <%= artista.biografia %>
-                    </p>
-                </div>
-              </div>
+  <div class="container">
+    <div class="row thumbnails">
+      <% for artista in @artistas do %>
+        <div class="col-xs-3 thumbnail">
+          <div class="artista" object-id="<%= artista.id %>">
+            <%= image_tag(artista.foto_perfil.url(:thumb), class:"thumbnail")  %>
+            <div class="caption">
+              <h3 class='nome_artista_home'><a href="/<%= uniq_url_for(artista) %>"><%= artista.nome %></a></h3>
+              <p class='well'> <%= artista.biografia %> </p>
+            </div>
           </div>
         </div>
-     </div>
-
+      <% end %>
+    </div>
   </div>
-
-
-  <% end %>
+</div>
 <% end %>
-<div>
