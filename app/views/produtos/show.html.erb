@@ -1,26 +1,28 @@
-<h1><%= @produto.nome %></h1>
-<% if @produto.imagens.empty? %>
-  <%= image_tag 'imagem_produto_default.png' %>
-<% else %>
-  <div class="col-xs-5">
-    <div class="thumbnail">
-      <%= show_first_image_or_default_for(@produto, class: "main-image") %>
-      <div class="caption">
-        <%= content_tag(:h3,@produto.nome) %>
-        <h4><%= link_to(@produto.artista.nome, @produto.artista.url_unica)  %></h4>
-        <div class="row">
-          <% for image in @produto.imagens  %>
-             <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded"), "#", action: "see", normal: image.anexo.url(:default), class: "small") %>
-          <% end  %>
+<div class="container">
+  <h1><%= @produto.nome %></h1>
+  <% if @produto.imagens.empty? %>
+    <%= image_tag 'imagem_produto_default.png' %>
+  <% else %>
+    <div class="row">
+      <div class="col-xs-1">
+        <% for image in @produto.imagens  %>
+          <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded small"), "#", action: "see", normal: image.anexo.url(:default)) %>
+        <% end  %>
+      </div>
+      <div class="col-xs-5">
+        <div>
+          <%= show_first_image_or_default_for(@produto, class: "thumbnail main-image") %>
+          <div class="caption">
+            <%= link_to(@produto.artista.nome, @produto.artista.url_unica)  %>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="col-xs-5">
+      <div class="col-xs-5">
         <p><%= link_to("Comprar", "#", class:"btn btn-primary", role: "button", action: "comprar") %></p>
-  </div>
-  <div class="row">
-    <%= markdown(@produto.descricao)  %>
-  </div>
-<% end %>
-
+      </div>
+    </div>
+    <div class="row">
+      <%= markdown(@produto.descricao)  %>
+    </div>
+  <% end %>
+</div>
