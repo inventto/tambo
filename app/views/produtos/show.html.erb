@@ -6,12 +6,12 @@
     <div class="row">
       <div class="col-xs-1">
         <% for image in @produto.imagens  %>
-          <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded small"), "#", action: "see", normal: image.anexo.url(:default)) %>
+          <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded small"), "#", action: "see", normal: image.anexo.url(:big)) %>
         <% end  %>
       </div>
       <div class="col-xs-5">
         <div>
-          <%= show_first_image_or_default_for(@produto, class: "thumbnail main-image") %>
+          <%= show_first_image_or_default_for(@produto, class: "thumbnail main-image", image_size:  "big") %>
           <div class="caption">
             <%= link_to(@produto.artista.nome, @produto.artista.url_unica)  %>
           </div>

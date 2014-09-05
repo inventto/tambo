@@ -18,7 +18,7 @@ module ApplicationHelper
   def show_first_image_or_default_for(produto, opts={})
     src =
       if not produto.imagens.blank?
-        produto.imagens.first.anexo.url(:thumb)
+        produto.imagens.first.anexo.url(opts[:image_size] || :thumb)
       else
         'imagem_produto_default.png'
       end
