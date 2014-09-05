@@ -1,10 +1,7 @@
 <div class="row">
-  <div class="span12 sombreado">
-    <%= image_tag(@artista.foto_capa.url(:original), class: "cover")  %>
+   <div class="span12 cover sombreado" style="background-image: url('<%= asset_path(@artista.foto_capa.url(:original)) %>')">
   </div>
-  <div class="profile">
-    <%= image_tag(@artista.foto_perfil.url(:thumb)) %>
-  </div>
+    <%= image_tag(@artista.foto_perfil.url(:thumb), class: "profile") %>
   <%= content_tag(:h1, @artista.nome, class: "profile-name", rel: "author")%>
 </div>
 
@@ -21,7 +18,7 @@
   <% end  %>
 </div>
 <div class="row">
-  <div class="col-xs-6">
+  <div class="col-xs-5">
     <h3>Biografia</h3>
     <div class="well">
       <%= @artista.biografia %>
@@ -36,7 +33,7 @@
       </div>
     <% end  %>
   </div>
-  <div class="col-xs-3">
+  <div class="col-xs-4">
     <h3>Progressão</h3>
     <div render="/chart">
     </div>
