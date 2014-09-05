@@ -35,6 +35,7 @@ describe "artistas", :type => :feature do
     it "com css" do
       visit'tambo_lucas_artes'
       expect(page).to have_content 'Artistas'
+      puts page
       expect(page).to have_css("div.artista[object-id='#{@pessoa.id}']")
     end
   end

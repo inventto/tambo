@@ -26,7 +26,7 @@
  }
  .navbar-brand{
    width:200px !important;
-   background: url("/assets/logo.png") no-repeat;
+   background: url(<%= asset_path("logo.png") %>) no-repeat;
    background-size: contains;
    float:left;
  }
@@ -176,21 +176,46 @@ footer{
       }
     }
 
-/*-------slider---------------------------*/
+    /*-------slider---------------------------*/
 
-    .small > img {
-      width: 128px;
-      height: 128px;
-      float: left;
-      padding-left: 10px;
-    }
+.small > img {
+  width: 128px;
+  height: 128px;
+  float: left;
+  padding-left: 10px;
+}
 
-  .nome_artista_home a{
+.nome_artista_home a{
     color: #3C1A66 !important;
-  }
+}
 .page_title{
   text-align:center;
   color:#fff;
   background:#3C1A66 !important;
   padding:2%;
+}
+
+.cover {
+  height: 500px;
+  width: 100%;
+}
+.sombreado{
+  -webkit-box-shadow: inset -8px -70px 45px -42px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -8px -70px 45px -42px rgba(0,0,0,0.75);
+  box-shadow: inset -8px -70px 45px -42px rgba(0,0,0,0.75);
+}
+.profile {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: 60%;
+  left: 2%;
+}
+.profile-name {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  color: white;
+  background-color: rgba(255,255,255,0.5);
+  z-index: 3;
 }

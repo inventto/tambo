@@ -1,24 +1,54 @@
-<div class="profile">
-  <%= image_tag(@artista.foto_perfil.url(:thumb)) %>
-  <span class="name" rel="author"><%= content_tag(:p, @artista.nome)%></span>
-</div>
-<%= content_tag(:p, @artista.email) %>
-<%= content_tag(:p, @artista.biografia) %>
-
-<h2>Portfólio</h2>
-<% for produto_artista in @artista.produtos_artista do 
-  produto = produto_artista.produto %>
 <div class="row">
-  <div class="thumb">
-    <% if produto.imagens.empty? %>
-      <%= image_tag "imagem_produto_default.png"  %>
-    <% else %>
-      <%= image_tag produto.imagens.first.url(:thumb)  %>
-    <% end %>
-    <span class="thumb-title"><%= content_tag(:span, produto.nome) %></span>
+  <div class="span12 sombreado">
+    <%= image_tag(@artista.foto_capa.url(:original), class: "cover")  %>
   </div>
-  <div class="description">
-    <%= produto.descricao  %>
+  <div class="profile">
+    <%= image_tag(@artista.foto_perfil.url(:thumb)) %>
+  </div>
+  <%= content_tag(:h1, @artista.nome, class: "profile-name", rel: "author")%>
+</div>
+
+<div class="container">
+  
+<div class="row thumbnails">
+  <% %w(timelapse acompanhamento técnicas encomendas faturamento evolução).each do |app|  %>
+    <div class="col-xs-2 " style="border: 1px dotted gray;">
+      <%= link_to(image_tag("logo.png"), "#", class: "small-thumbnail")%>
+      <div class="caption">
+        <%= app%>
+      </div>
+    </div>
+  <% end  %>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <h3>Biografia</h3>
+    <div class="well">
+      <%= @artista.biografia %>
+    </div>
+  </div>
+  <div class="col-xs-3">
+    <h3>Info</h3>
+    <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
+      <div class="row">
+         <div class="col-xs-6"> <%= content_tag(:strong, _label)  %> </div>
+         <div class="col-xs-6"> <%= content_tag(:span, value)  %> </div>
+      </div>
+    <% end  %>
+  </div>
+  <div class="col-xs-3">
+    <h3>Progressão</h3>
+    <div render="/chart">
+    </div>
   </div>
 </div>
-<% end %>
+<div class="row">
+  <h2>Portfólio</h2>
+  <% for produto_artista in @artista.produtos_artista do 
+    produto = produto_artista.produto %>
+    <div class="row">
+      <%= render 'home/ver_detalhes_produto', locals: {produto: produto } %>
+    </div>
+  <% end %>
+</div>
+</div>
