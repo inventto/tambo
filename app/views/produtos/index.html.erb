@@ -11,7 +11,7 @@
       <% for produto in @produtos %>
         <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
-            <%= show_first_image_or_default_for(produto) %>
+            <%= link_to show_first_image_or_default_for(produto), produto.url_unica %>
             <div class="caption">
               <%= content_tag(:h3,produto.nome) %>
               <p>Por <i class="small"><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></i></p>
