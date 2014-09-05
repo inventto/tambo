@@ -1,4 +1,5 @@
-MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto)
+MODELOS = %w(Vitrine Cidade Categoria Estado Pessoa Produto Colecao FabricaProduto ArtistaProduto)
+
 RailsAdmin.config do |config|
 
   ### Popular gems integration
@@ -17,7 +18,7 @@ RailsAdmin.config do |config|
 
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.excluded_models += [CategoriaVitrine]
+  config.excluded_models += [CategoriaVitrine, ColecaoProduto]
 
   config.actions do
     dashboard                     # mandatory
@@ -42,4 +43,31 @@ RailsAdmin.config do |config|
       end
     end
   end
+=begin
+  config.model Pessoa do
+    configure :foto_capa, :jcrop
+    edit do
+      field :foto_capa do
+        jcrop_options aspectRatio: 16.0 / 9.0
+      end
+      field :foto_perfil do
+        jcrop_options aspectRatio: 1
+      end
+    end
+  end
+  [Categoria, Colecao, Vitrine].each do |model|
+    config.model model do
+      configure :imagem, :jcrop
+      field :imagem do
+        jcrop_options aspectRatio: 1
+      end
+    end
+  end
+  config.model Imagem do
+    configure :anexo, :jcrop
+    field :anexo do
+      jcrop_options aspectRatio: 1
+    end
+  end
+=end
 end

@@ -1,0 +1,196 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ ul.nav.navbar-nav{
+   font-weight:bold;
+   color:#8285A0;
+  font-size:14px;
+ }
+ .navbar{
+   padding:0.5%;
+ }
+ .navbar-nav{
+   margin-left:2%;
+ }
+ .navbar-brand{
+   width:200px !important;
+   background: url("/assets/logo.png") no-repeat;
+   background-size: contains;
+   float:left;
+ }
+ .vitrine1{
+   padding:2%;
+   font-family: 'Open Sans', sans-serif;
+ }
+.loginarea li a{
+  color:#8E44AD !important;
+}
+.loginarea li a:hover{
+  color:#3C1A66 !important;
+}
+.btn-primary{
+  background:#3C1A66;
+  border-color:#3C1A66;
+}
+.btn-primary:hover{
+  transition: 0.8s ease;
+  background:#8E44AD;
+  border-color:#8E44AD;
+}
+.caption h4{
+  font-weight:bold;
+  color:#3C1A66;
+}
+
+#wide{
+  width:100%;
+  margin-top:-20px;
+}
+#wide img{
+  width:100% !important  ;
+}
+.thumbnail img{
+  width:242px;
+  height:242px;
+  border-radius:5px;
+  margin-top:5px;
+}
+footer{
+  width:100%;
+  padding:2%;
+  background:#333;
+  color:#fff;
+}
+
+<!--CAROUSEL-->
+
+    /* CUSTOMIZE THE CAROUSEL
+    -------------------------------------------------- */
+    .carousel {
+      margin-bottom: 60px;
+    }
+
+    .carousel .container {
+      position: relative;
+      z-index: 9;
+    }
+
+    .carousel-control {
+      height: auto;
+      margin-top: 0;
+      font-size: 120px;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      background-color: transparent;
+      border: 0;
+      z-index: 10;
+    }
+
+    .carousel .item {
+      height: 500px;
+    }
+    .carousel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 500px;
+    }
+
+    .carousel-caption {
+      background-color: transparent;
+      position: static;
+      max-width: 550px;
+      padding: 0 20px;
+      margin:0 auto;
+      margin-top: 200px;
+      text-align:center;
+    }
+    .carousel-caption h1,
+    .carousel-caption .lead {
+      margin: 0;
+      line-height: 1.25;
+      color: #fff;
+      text-shadow: 0 1px 1px rgba(0,0,0,.4);
+    }
+    .carousel-caption .btn {
+      margin-top: 10px;
+    }
+
+
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .carousel .item {
+        height: 500px;
+      }
+      .carousel img {
+        width: auto;
+        height: 500px;
+      }
+
+    }
+
+
+    @media (max-width: 767px) {
+
+
+      .carousel {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+      .carousel .container {
+
+      }
+      .carousel .item {
+        height: 300px;
+      }
+      .carousel img {
+        height: 300px;
+      }
+      .carousel-caption {
+        width: 65%;
+        padding: 0 70px;
+        margin-top: 100px;
+      }
+      .carousel-caption h1 {
+        font-size: 30px;
+      }
+      .carousel-caption .lead,
+      .carousel-caption .btn {
+        font-size: 18px;
+      }
+    }
+
+/*-------slider---------------------------*/
+
+    .small > img {
+      width: 128px;
+      height: 128px;
+      float: left;
+      padding-left: 10px;
+    }
+
+  .nome_artista_home a{
+    color: #3C1A66 !important;
+  }
+.page_title{
+  text-align:center;
+  color:#fff;
+  background:#3C1A66 !important;
+  padding:2%;
+}

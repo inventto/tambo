@@ -1,7 +1,7 @@
 class Produto < ActiveRecord::Base
   belongs_to :artista, class_name: 'Pessoa', foreign_key: "artista_id"
   belongs_to :fabrica, class_name: 'Pessoa', foreign_key: "fabrica_id"
-  belongs_to :categoria
+  has_and_belongs_to_many :categorias, join_table: :categorias_produtos
   has_many :imagens
 
   validates :nome, presence: true

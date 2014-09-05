@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821201851) do
+ActiveRecord::Schema.define(version: 20140905143524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 20140821201851) do
   add_index "categoria_vitrines", ["categoria_id"], name: "index_categoria_vitrines_on_categoria_id", using: :btree
   add_index "categoria_vitrines", ["vitrine_id"], name: "index_categoria_vitrines_on_vitrine_id", using: :btree
 
+  create_table "categorias_produtos", id: false, force: true do |t|
+    t.integer "categoria_id"
+    t.integer "produto_id"
+  end
+
+  add_index "categorias_produtos", ["categoria_id", "produto_id"], name: "index_categorias_produtos_on_categoria_id_and_produto_id", using: :btree
+
   create_table "cidades", force: true do |t|
     t.string   "nome"
     t.datetime "created_at"
@@ -59,6 +66,26 @@ ActiveRecord::Schema.define(version: 20140821201851) do
   end
 
   add_index "cidades", ["estado_id"], name: "index_cidades_on_estado_id", using: :btree
+
+  create_table "colecoes", force: true do |t|
+    t.string   "nome"
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "colecoes_produtos", force: true do |t|
+    t.integer  "colecao_id"
+    t.integer  "produto_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "colecoes_produtos", ["colecao_id"], name: "index_colecoes_produtos_on_colecao_id", using: :btree
+  add_index "colecoes_produtos", ["produto_id"], name: "index_colecoes_produtos_on_produto_id", using: :btree
 
   create_table "estados", force: true do |t|
     t.string   "nome"
@@ -115,7 +142,7 @@ ActiveRecord::Schema.define(version: 20140821201851) do
   create_table "produtos", force: true do |t|
     t.string   "nome",               null: false
     t.text     "descricao"
-    t.text     "descricao_artista"
+    t.text     "conceito"
     t.string   "url_unica",          null: false
     t.decimal  "preco"
     t.decimal  "preco_promocional"

@@ -1,27 +1,67 @@
-    <%content_for :capa do%>
-      <div id="wide">
-        <img src="/assets/exemplo1.jpg">
+<%content_for :capa do%>
+  <div id="wide">
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <%= image_tag(asset_path("exemplo1.jpg"))  %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Bem vindo ao Empório Tambo.</h1>
+              <p class="lead">Descrição geral do que o site faz</p>
+              <a class="btn btn-large btn-primary" href="#">Registre-se!</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag(asset_path("exemplo2.jpg"))  %>
+          <div class="container">
+            <div class="carousel-caption text-centered">
+              <h1>Produtos feitos com o coração.</h1>
+              <p class="lead">Contato direto com o artesão para melhores produtos</p>
+              <a class="btn btn-large btn-primary" href="#">Descubra</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag(asset_path("exemplo3.jpg"))  %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Eu não sabia mais o que colocar nesse slide.</h1>
+              <p class="lead">Então coloquei esse texto para testar :P</p>
+              <a class="btn btn-large btn-primary" href="#">Clique aqui!</a>
+            </div>
+          </div>
+        </div>
       </div>
-    <%end%>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"> </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"> </a>
+    </div><!-- /.carousel -->
+  </div>
+<%end%>
 
 
 <div class="vitrine1">
+  <h1>Vitrines</h1>
   <% for categoria in @categorias  %>
     <h2><%= categoria.nome  %></h2>
     <div class="row">
       <% for produto in categoria.produtos  %>
-        <div class="col-sm-5 col-md-3">
-          <div class="thumbnail">
-            <%= image_tag(produto.imagens.first.anexo.url(:thumb)) %>
-            <div class="caption">
-              <%= content_tag(:h3,produto.nome) %>
-              <h4>Artesão incrível</h4>
-              <h4><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
-              <p><%= produto.descricao  %></p>
-              <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
-            </div>
-          </div>
-        </div>
+        <%= render 'ver_detalhes_produto', locals: {produto: produto } %>
+      <% end  %>
+    </div>
+  <% end  %>
+</div>
+
+<div class="vitrine2">
+  <h1>Coleções</h1>
+  <% for colecao in @colecoes  %>
+    <h2><%= colecao.nome  %></h2>
+    <%= image_tag colecao.imagem.url(:thumb ) %>
+    <div class="row">
+      <% for produto in colecao.produtos  %>
+        <%= render 'ver_detalhes_produto', locals: {produto: produto } %>
       <% end  %>
     </div>
   <% end  %>
