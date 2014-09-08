@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row thumbnails">
       <% for artista in @artistas do %>
-        <div class="col-xs-3 thumbnail">
+        <div class="col-xs-3 thumbnail artistshow span3">
           <div class="artista" object-id="<%= artista.id %>">
             <%= image_tag(artista.foto_perfil.url(:thumb), class:"thumbnail")  %>
             <div class="caption">
