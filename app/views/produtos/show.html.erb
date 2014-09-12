@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-xs-1">
         <% for image in @produto.imagens  %>
-          <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded small"), "#", action: "see", normal: image.anexo.url(:big)) %>
+          <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded small"), "#", action: "see", big: image.anexo.url(:big)) %>
         <% end  %>
       </div>
       <div class="col-xs-5">
@@ -18,8 +18,13 @@
         </div>
       </div>
       <div class="col-xs-5">
-        <p><%= link_to("Comprar", "#", class:"btn btn-primary", role: "button", action: "comprar") %></p>
+        <div class="preview-zoom thumbnail">
+        </div>
       </div>
+    </div>
+    <div class="row">
+      
+        <p><%= link_to("Comprar", "#", class:"btn btn-primary", role: "button", action: "comprar") %></p>
     </div>
     <div class="row">
       <%= markdown(@produto.descricao)  %>
