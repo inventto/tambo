@@ -1,0 +1,7 @@
+<div class="owl-carousel">
+  <% produtos.each do |produto| %>
+    <div class="item">
+    <%= render 'home/ver_detalhes_produto', locals: {produto: produto } %>
+  </div>
+<% end %>
+</div>

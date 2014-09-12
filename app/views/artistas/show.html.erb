@@ -41,11 +41,6 @@
 </div>
 <div class="row">
   <h2>Portfólio</h2>
-  <% for produto_artista in @artista.produtos_artista do 
-    produto = produto_artista.produto %>
-    <div class="row">
-      <%= render 'home/ver_detalhes_produto', locals: {produto: produto } %>
-    </div>
-  <% end %>
+  <%= render :partial => "shared/produto_carousel", :locals => {:produtos => @artista.produtos}%>
 </div>
 </div>

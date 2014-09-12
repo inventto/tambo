@@ -21,6 +21,7 @@ class Pessoa < ActiveRecord::Base
    belongs_to :cidade
    has_many :produtos_artista, join_table: "artista_produtos", class_name: "ArtistaProduto", foreign_key: "artista_id"
    has_many :produtos_fabrica, join_table: "fabrica_produtos", class_name: "FabricaProduto", foreign_key: "fabrica_id"
+   has_many :produtos, through: :produtos_artista
    validates :produtos_fabrica, :produtos_artista, associated: true
 
    def to_s

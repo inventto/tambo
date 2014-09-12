@@ -3,6 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  $(".owl-carousel").owlCarousel ->
+    autoPlay: 3000
+    items : 1
+
   for div in $("[render]")
     d = $(div)
     $.get d.attr("render"), (data) ->
