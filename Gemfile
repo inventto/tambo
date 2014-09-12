@@ -26,6 +26,7 @@ gem "twitter-bootstrap-rails"
 gem 'redcarpet'
 gem 'lazy_high_charts'
 #gem 'rails_admin_jcrop'
+gem 'owlcarousel-rails'
 
 group :production, :staging do
   gem 'google-analytics-rails'
@@ -69,4 +70,5 @@ group :development, :test do
   #gem 'pry-rails',            '0.3.2'
   gem 'dotenv-rails',         '0.11.1'
   gem 'awesome_print',        '1.2.0'
+  gem 'byebug'
 end
