@@ -5,7 +5,7 @@
   <%= content_tag(:h1, @artista.nome, class: "profile-name", rel: "author")%>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 
 <div class="row widget">
   <% %w(Timelapse Acompanhamento Técnicas Encomendas Faturamento Evolução).each do |app|  %>
@@ -17,19 +17,20 @@
     </div>
   <% end  %>
 </div>
-<div class="row">
+
+<div class="row-fluid container">
   <div class="col-lg-5 widget">
     <h3><span class="icon-user-following medium-icon"></span>Biografia</h3>
     <div class="well">
       <%= @artista.biografia %>
     </div>
   </div>
-  <div class="col-lg-4 col-md-6 col-sm-12 widget">
+  <div class="col-lg-3 col-md-6 col-sm-12 widget">
     <h3><span class="icon-info medium-icon"></span>Info</h3>
     <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
       <div class="row">
-         <div class="col-xs-6"> <%= content_tag(:strong, _label)  %> </div>
-         <div class="col-xs-6"> <%= content_tag(:span, value)  %> </div>
+         <div class="col-xs-3"> <%= content_tag(:strong, _label)  %> </div>
+         <div class="col-xs-3"> <%= content_tag(:span, value)  %> </div>
       </div>
     <% end  %>
   </div>
@@ -39,6 +40,7 @@
     </div>
   </div>
 </div>
+
 <div class="row">
   <h2>Portfólio</h2>
   <%= render :partial => "shared/produto_carousel", :locals => {:produtos => @artista.produtos}%>
