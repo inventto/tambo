@@ -6,43 +6,56 @@
 </div>
 
 <div class="container-fluid">
+  <div class="row widget">
+      <div id="navmenu">
+        <ul>
 
-<div class="row widget">
-  <% %w(Timelapse Acompanhamento Técnicas Encomendas Faturamento Evolução).each do |app|  %>
-    <div class="col-xs-2 ">
-      <%= link_to(image_tag("logo.png"), "#", class: "small-thumbnail")%>
-      <div class="caption">
-        <%= app%>
+        	<li><span class="icon-clock medium-icon"></span><a href="#">Timelapse</a></li>
+
+        	<li><span class=" icon-feed medium-icon"></span><a href="#">Acompanhamento</a></li>
+
+        	<li><span class="icon-wrench medium-icon"></span><a href="#">Técnicas</a></li>
+
+        	<li>  <span class="icon-present medium-icon"></span><a href="#">Encomendas</a></li>
+
+          <li><span class="icon-graph medium-icon"></span><a href="#">Faturamento</a></li>
+
+          <li><span class="icon-refresh medium-icon"></span><a href="#">Evolução</a></li>
+        </ul>
       </div>
-    </div>
-  <% end  %>
-</div>
+  </div>
 
 <div class="row-fluid container">
-  <div class="col-lg-5 widget">
-    <h3><span class="icon-user-following medium-icon"></span>Biografia</h3>
-    <div class="well">
-      <%= @artista.biografia %>
-    </div>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-12 widget">
-    <h3><span class="icon-info medium-icon"></span>Info</h3>
-    <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
-      <div class="row">
-         <div class="col-xs-3"> <%= content_tag(:strong, _label)  %> </div>
-         <div class="col-xs-3"> <%= content_tag(:span, value)  %> </div>
+  <div class="col-lg-8 col-md-6 col-sm-12">
+  <!--biografia-->
+    <div class="col-lg-6 col-md-6 col-sm-12 widget">
+      <h3><span class="icon-user-following medium-icon"></span>Biografia</h3>
+      <div class="well">
+        <%= @artista.biografia %>
       </div>
-    <% end  %>
-  </div>
-  <div class="col-lg-3 col-md-6 col-sm-12 widget">
-    <h3><span class="icon-badge medium-icon"></span>Progressão</h3>
-    <div render="/chart">
     </div>
+    <!--info-->
+    <div class="col-lg-5 col-md-6 col-sm-12 widget fluid">
+      <h3><span class="icon-info medium-icon"></span>Info</h3>
+        <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
+    <div class="row">
+        <div class="col-xs-4"> <%= content_tag(:strong, _label)  %> </div>
+        <div class="col-xs-3"> <%= content_tag(:span, value)  %> </div>
+    </div>
+    <% end  %>
+    </div>
+    <!--portfolio-->
+    <div class="col-lg-12 col-md-6 col-sm-12 widget">
+        <h2><span class="icon-book-open medium-icon"></span>Portfólio</h2>
+        <%= render :partial => "shared/produto_carousel", :locals => {:produtos => @artista.produtos}%>
+    </div>
+    <!--progressão-->
   </div>
-</div>
+    <div class="col-lg-3 col-md-6 col-sm-12 widget">
+      <h3><span class="icon-badge medium-icon"></span>Progressão</h3>
+        <div render="/chart">
+        </div>
+    </div>
 
-<div class="row">
-  <h2>Portfólio</h2>
-  <%= render :partial => "shared/produto_carousel", :locals => {:produtos => @artista.produtos}%>
-</div>
+  </div>
 </div>
