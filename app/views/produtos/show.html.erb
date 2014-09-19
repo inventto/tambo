@@ -1,54 +1,54 @@
-  <h1><%= @produto.nome %></h1>
-  <% if @produto.imagens.empty? %>
-    <%= image_tag 'imagem_produto_default.png' %>
-  <% else %>
-    <div class="row thumbnails">
-      <div class="col-xs-1">
-        <% for image in @produto.imagens  %>
-          <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded small"), "#", action: "see", big: image.anexo.url(:big)) %>
-        <% end  %>
-      </div>
-      <div class="col-lg-5 col-md-11 col-sm-11 col-xs-11">
-        <div>
-          <%= show_first_image_or_default_for(@produto, class: "thumbnail main-image", image_size:  "big") %>
-          <div class="caption">
-            <%= link_to(@produto.artista.nome, @produto.artista.url_unica)  %>
-          </div>
+<h1><%= @produto.nome %></h1>
+<% if @produto.imagens.empty? %>
+  <%= image_tag 'imagem_produto_default.png' %>
+<% else %>
+  <div class="row thumbnails">
+    <div class="col-xs-1">
+      <% for image in @produto.imagens  %>
+        <%= link_to(image_tag(image.anexo.url(:thumb), class: "img-rounded small"), "#", action: "see", big: image.anexo.url(:big)) %>
+      <% end  %>
+    </div>
+    <div class="col-lg-5 col-md-11 col-sm-11 col-xs-11">
+      <div>
+        <%= show_first_image_or_default_for(@produto, class: "thumbnail main-image", image_size:  "big") %>
+        <div class="caption">
+          <%= link_to(@produto.artista.nome, @produto.artista.url_unica)  %>
         </div>
       </div>
-      <div class="col-lg-5 col-md-11 col-sm-11 col-xs-11">
-        <div class="content">
-          <div class="col-lg-5 hidden-phone hidden-tablet preview-zoom thumbnail">
-          </div>
+    </div>
+    <div class="col-lg-5 col-md-11 col-sm-11 col-xs-11">
+      <div class="content">
+        <div class="col-lg-5 hidden-phone hidden-tablet preview-zoom thumbnail"></div>
+        <div class="well">
           <div class="row">
-            <div class="well big">
-              <h1 title="<%= @produto.preco.reais.por_extenso  %>">R$ <%= @produto.preco.reais %></h1>
-              Parcele em até 12 vezes no cartão!
-              <%= select_tag "parcelas", options_for_select(@produto.parcelado_em(12)) %>
-            
-            </div>
+            <h1 title="<%= @produto.preco.reais.por_extenso  %>" >R$ <span class="total" preco-produto="<%= @produto.preco  %>"><%= @produto.preco.reais %></span></h1>
+            Parcele em até 12 vezes no cartão!
+            <%= select_tag "parcelas", options_for_select(@produto.parcelado_em(12)) %>
           </div>
-          <div class="row">
-            <% if @produto.artista  %>
-              <div class="span6"><h3><%= @produto.artista.primeiro_nome  %> recebe <span class="icon-pencil"></span><%= @produto.preco_artista %></h3> </div>
-            <% end  %>
-            <% if @produto.fabrica  %>
-              <div class="span6"><h3><%= @produto.fabrica.primeiro_nome  %> recebe <span class="icon-settings"></span><%= @produto.preco_fabrica %></h3> </div>
-            <% end  %>
-            </div>
-
-
-          </div>
+          <hr />
           <div class="row">
             <input type="text" id="cep" placeholder="CEP" style='width:85px;'/>
-            <span class="valor-frete">R$ <span class="em-reais">0,00</span></span>
+            <span class="valor-frete">R$ <span class="em-reais frete-ganha">0,00</span></span>
             <%= link_to("Calcular Frete", "#", class:"btn btn-success", role: "button", action: "frete") %>
             <%= link_to("Comprar", "#", class:"btn btn-primary", role: "button", action: "comprar") %>
           </div>
         </div>
+        <% if @produto.artista  %>
+          <div class="span6"><h3><span class="icon-pencil"></span><%= @produto.artista.primeiro_nome  %> recebe R$ <span class="artista-ganha"><%= @produto.preco_artista.reais %></span></h3> </div>
+        <% end  %>
+        <% if @produto.fabrica  %>
+          <div class="span6"><h3><span class="icon-settings"></span><%= @produto.fabrica.primeiro_nome  %> recebe R$ <span class="fabrica-ganha"><%= @produto.preco_fabrica.reais %></span></h3> </div>
+        <% end  %>
+        <div class="row">
+          <small>O site fica com R$ <span class="site-ganha"><%= @produto.comissao_site.reais  %></span></small>
+        </div>
+
+        <div  id="rateio" class="small-box" ></div>
       </div>
     </div>
-    <div class="row content">
-      <%= markdown(@produto.descricao)  %>
-    </div>
+  </div>
+</div>
+<div class="row content">
+  <%= markdown(@produto.descricao)  %>
+</div>
   <% end %>

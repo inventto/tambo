@@ -42,4 +42,7 @@ class Produto < ActiveRecord::Base
     end
     parcelas
   end
+  def comissao_site
+    preco - preco_artista - preco_fabrica
+  end
 end
