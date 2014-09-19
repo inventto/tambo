@@ -1,12 +1,10 @@
 <% produto = locals[:produto]  %>
-<div class="col-sm-5 col-md-3">
-  <div class="thumbnail">
-    <%= show_first_image_or_default_for(produto) %>
-    <div class="caption">
-      <%= content_tag(:h3,produto.nome) %>
-      <h4 class="nome_artista_home"><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
-      <p><%= produto.conceito %></p>
-      <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
-    </div>
+<div class="thumbnail">
+  <%= show_first_image_or_default_for(produto) %>
+  <div class="caption">
+    <%= content_tag(:h3,produto.nome) %>
+    <h4 class="nome_artista_home"><%= link_to(produto.artista.nome, produto.artista.url_unica)  %></h4>
+    <p><%= produto.conceito %></p>
+    <p><%= link_to("Ver mais...", produto.url_unica, class:"btn btn-primary", role: "button") %></p>
   </div>
 </div>
