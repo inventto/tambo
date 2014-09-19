@@ -3,9 +3,7 @@ require "rails_helper"
 describe "produtos", :type => :feature do
   context "com_produtos" do
     before :all do
-      @produto = Produto.first || FactoryGirl.create(:produto)
-      @produto.artista = Pessoa.first || FactoryGirl.build(:pessoa)
-      @produto.save
+      @produto = FactoryGirl.create(:produto)
     end
     it "espera ter produtos" do
       visit "/produtos"
@@ -20,9 +18,6 @@ describe "produtos", :type => :feature do
       click_link(@produto.artista.nome)
       expect(page.current_path).to eql("/#{@produto.artista.url_unica}")
       expect(page).to have_content @produto.artista.nome
-    end
-    after :all do
-      Produto.destroy_all
     end
   end
   context "sem produtos" do

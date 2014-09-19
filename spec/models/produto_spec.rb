@@ -16,7 +16,7 @@ RSpec.describe Produto, :type => :model do
   it { should validate_presence_of :preco_promocional }
   it { should validate_numericality_of :preco_promocional }
   it "preco_promocional deve ser menor que o preco" do
-    produto = FactoryGirl.create :produto
+    produto = create :produto
     produto.preco_promocional = 56
     expect(produto).to_not be_valid
     expect(produto.errors).to have_key(:preco_promocional)
