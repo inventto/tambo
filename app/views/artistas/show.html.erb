@@ -18,13 +18,13 @@
   <% end  %>
 </div>
 <div class="row">
-  <div class="span2 widget">
+  <div class="col-lg-5 widget">
     <h3><span class="icon-user-following medium-icon"></span>Biografia</h3>
     <div class="well">
       <%= @artista.biografia %>
     </div>
   </div>
-  <div class="span4 widget">
+  <div class="col-lg-4 col-md-6 col-sm-12 widget">
     <h3><span class="icon-info medium-icon"></span>Info</h3>
     <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
       <div class="row">
@@ -33,7 +33,7 @@
       </div>
     <% end  %>
   </div>
-  <div class="span3 widget">
+  <div class="col-lg-3 col-md-6 col-sm-12 widget">
     <h3><span class="icon-badge medium-icon"></span>Progressão</h3>
     <div render="/chart">
     </div>
