@@ -7,7 +7,7 @@
 
 <div class="container">
 
-<div class="row thumbnails widget">
+<div class="row widget">
   <% %w(Timelapse Acompanhamento Técnicas Encomendas Faturamento Evolução).each do |app|  %>
     <div class="col-xs-2 ">
       <%= link_to(image_tag("logo.png"), "#", class: "small-thumbnail")%>
@@ -18,13 +18,13 @@
   <% end  %>
 </div>
 <div class="row">
-  <div class="col-xs-4 widget">
+  <div class="span2 widget">
     <h3><span class="icon-user-following medium-icon"></span>Biografia</h3>
     <div class="well">
       <%= @artista.biografia %>
     </div>
   </div>
-  <div class="col-xs-4 widget">
+  <div class="span4 widget">
     <h3><span class="icon-info medium-icon"></span>Info</h3>
     <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
       <div class="row">
@@ -33,7 +33,7 @@
       </div>
     <% end  %>
   </div>
-  <div class="col-md-4 widget">
+  <div class="span3 widget">
     <h3><span class="icon-badge medium-icon"></span>Progressão</h3>
     <div render="/chart">
     </div>
