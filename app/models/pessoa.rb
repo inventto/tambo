@@ -27,4 +27,7 @@ class Pessoa < ActiveRecord::Base
    def to_s
      "#{nome} (#{url_unica})"
    end
+   def primeiro_nome
+     nome.split(' ').first
+   end
 end

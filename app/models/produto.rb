@@ -17,8 +17,29 @@ class Produto < ActiveRecord::Base
       self.errors.add(:preco_promocional, "deve ser menor que o preço")
     end
   end
-
   def to_s
     "#{nome} (#{url_unica})"
+  end
+  def do_artista
+    artista.produtos_artista.where(produto_id: self.id).first
+  end
+  def da_fabrica
+    fabrica.produtos_fabrica.where(produto_id: self.id).first
+  end
+  def preco_artista
+    do_artista.preco
+  end
+  def preco_fabrica
+    da_fabrica.preco
+  end
+
+  def parcelado_em ate_n_vezes
+    parcelas = []
+    ate_n_vezes.times do |i|
+      parcela = i + 1
+      preco_parcela = preco.reais.parcelar(parcela).first
+      parcelas << [  "#{parcela} parcelas de R$ #{preco_parcela}", parcela]
+    end
+    parcelas
   end
 end
