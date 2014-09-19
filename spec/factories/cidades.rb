@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :cidade do
     nome "Francisco Beltrão"
-    estado
+    estado factory: :estado, strategy: :build
   end
 end
