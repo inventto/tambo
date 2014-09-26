@@ -9,7 +9,7 @@
         <li><a href="/produtos" class="active">Produtos</a></li>
       </ol>
       <% for produto in @produtos %>
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6 col-md-4 produto_show">
           <div class="thumbnail">
             <%= link_to show_first_image_or_default_for(produto), produto.url_unica %>
             <div class="caption">

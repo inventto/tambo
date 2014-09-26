@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row capa">
    <div class="span12 cover sombreado" style="background-image: url('<%= asset_path(@artista.foto_capa.url(:original)) %>')">
   </div>
     <%= image_tag(@artista.foto_perfil.url(:thumb), class: "profile") %>
@@ -8,8 +8,8 @@
 <div class="container-fluid">
   <div class="row widget">
       <div id="navmenu">
-        <ul>
-        	<li><a href="#"><span class="icon-clock medium-icon"></span>Timelapse</a></li>
+        <ul class="nav nav-pills">
+        	<li class="active"><a href="#"><span class="icon-clock medium-icon"></span>Timelapse</a></li>
         	<li><a href="#"><span class="icon-feed medium-icon"></span>Acompanhamento</a></li>
         	<li><a href="#"><span class="icon-wrench medium-icon"></span>Técnicas</a></li>
         	<li><a href="#"><span class="icon-present medium-icon"></span>Encomendas</a></li>
@@ -19,17 +19,17 @@
       </div>
   </div>
 
-<div class="row-fluid container visible-desktop">
+<div class="row-fluid container visible-desktop panel_info ">
   <div class="col-lg-8 col-md-6 col-sm-12">
   <!--biografia-->
-    <div class="col-lg-6 col-md-6 col-sm-12 widget">
+    <div class="col-lg-8 col-md-6 col-sm-12 widget">
       <h3><span class="icon-user-following medium-icon"></span>Biografia</h3>
       <div class="well">
         <%= @artista.biografia %>
       </div>
     </div>
     <!--info-->
-    <div class="col-lg-5 col-md-6 col-sm-12 widget fluid">
+    <div class="col-lg-4 col-md-6 col-sm-12 widget" style="width: 248px;">
       <h3><span class="icon-info medium-icon"></span>Info</h3>
         <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
     <div class="row">
