@@ -17,3 +17,4 @@
 //= require highcharts/highcharts
 //= require owl.carousel
 //= require angular
+$(document).ready(function(){$("*[tooltip]").tooltip();})
