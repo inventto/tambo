@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "simulador" => 'simulate#index'
+
   get 'home/index'
 
   get 'artistas' => "artistas#index"

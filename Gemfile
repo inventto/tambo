@@ -27,6 +27,7 @@ gem 'redcarpet'
 gem 'lazy_high_charts'
 #gem 'rails_admin_jcrop'
 gem 'owlcarousel-rails'
+gem 'angularjs-rails'
 
 group :production, :staging do
   gem 'google-analytics-rails'
