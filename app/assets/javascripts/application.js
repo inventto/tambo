@@ -16,3 +16,4 @@
 //= require_tree .
 //= require highcharts/highcharts
 //= require owl.carousel
+$(document).ready(function(){$("*[tooltip]").tooltip();})

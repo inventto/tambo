@@ -8,13 +8,15 @@
 <div class="container-fluid">
   <div class="row widget">
       <div id="navmenu">
-        <ul class="nav nav-pills">
-        	<li class="active"><a href="#"><span class="icon-clock medium-icon"></span>Timelapse</a></li>
-        	<li><a href="#"><span class="icon-feed medium-icon"></span>Acompanhamento</a></li>
-        	<li><a href="#"><span class="icon-wrench medium-icon"></span>Técnicas</a></li>
-        	<li><a href="#"><span class="icon-present medium-icon"></span>Encomendas</a></li>
-          <li><a href="#"><span class="icon-graph medium-icon"></span>Faturamento</a></li>
-          <li><a href="#"><span class="icon-refresh medium-icon"></span>Evolução</a></li>
+        <ul class="nav navbar nav-pills " role="navigation" id="tools_artista_view">
+          <%= bar_item tooltip: "Veja o perfil do artista.", icon: "user-following", label: "Perfil" %>
+          <%= bar_item tooltip: "Veja o artista trabalhando em algumas de suas obras.", icon: "clock", label: "Timelapse" %>
+            <li tooltip title="" data-placement="bottom"><a href="#"><span class="icon- medium-icon" ></span><br>Timelapse</a></li>
+        	<li tooltip title="Siga este artista." data-placement="bottom"><a href="#"><span class="icon-feed medium-icon"></span><br>Seguir</a></li>
+        	<li tooltip title="Veja as técnicas mais usadas por este artista." data-placement="bottom"><a href="#"><span class="icon-wrench medium-icon"></span><br>Técnicas</a></li>
+        	<li tooltip title="Faça a sua encomenda com este artista." data-placement="bottom"><a href="#"><span class="icon-present medium-icon"></span><br>Encomendas</a></li>
+          <li tooltip title="." data-placement="bottom"><a href="#"><span class="icon-graph medium-icon"></span><br>Faturamento</a></li>
+          <li tooltip title="Acompanhe o desenvolvimento do produto." data-placement="bottom"><a href="#"><span class="icon-refresh medium-icon"></span><br>Evolução</a></li>
         </ul>
       </div>
   </div>
@@ -22,27 +24,19 @@
 <div class="row-fluid container visible-desktop panel_info ">
   <div class="col-lg-8 col-md-6 col-sm-12">
   <!--biografia-->
-    <div class="col-lg-8 col-md-6 col-sm-12 widget">
-      <h3><span class="icon-user-following medium-icon"></span>Biografia</h3>
+    <div class="col-lg-12 col-md-6 col-sm-12 widget">
+      <h3><span class="icon-user-following medium-icon"  tooltip title="Acompanhe o desenvolvimento do produto." data-placement="bottom"></span>Biografia</h3>
       <div class="well">
         <%= @artista.biografia %>
       </div>
     </div>
-    <!--info-->
-    <div class="col-lg-4 col-md-6 col-sm-12 widget" style="width: 248px;">
-      <h3><span class="icon-info medium-icon"></span>Info</h3>
-        <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
-    <div class="row">
-        <div class="col-xs-4"> <%= content_tag(:strong, _label)  %> </div>
-        <div class="col-xs-3"> <%= content_tag(:span, value)  %> </div>
-    </div>
-    <% end  %>
-    </div>
+
     <!--portfolio-->
     <div class="col-lg-12 col-md-6 col-sm-12 widget">
         <h2><span class="icon-book-open medium-icon"></span>Portfólio</h2>
         <%= render :partial => "shared/produto_carousel", :locals => {:produtos => @artista.produtos}%>
     </div>
+
 </div>
     <!--progressão-->
 
@@ -50,6 +44,16 @@
       <h3><span class="icon-badge medium-icon"></span>Progressão</h3>
         <div render="/chart">
         </div>
+    </div>
+    <!--info-->
+    <div class="col-lg-3 col-md-6 col-sm-12 widget">
+      <h3><span class="icon-info medium-icon"></span>Info</h3>
+        <% { "Email" => @artista.email, "Site" => link_to("/#{@artista.url_unica}", @artista.url_unica), "Iniciou em" => @artista.iniciou_em}.each do |_label,value| %>
+    <div class="row">
+        <div class="col-xs-4"> <%= content_tag(:strong, _label)  %> </div>
+        <div class="col-xs-3"> <%= content_tag(:span, value)  %> </div>
+    </div>
+    <% end  %>
     </div>
 
   </div>

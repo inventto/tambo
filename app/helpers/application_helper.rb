@@ -24,4 +24,24 @@ module ApplicationHelper
       end
     image_tag(src, opts)
   end
+  def limitar(text)
+    if text.size < 200
+      return text
+    else
+      text[0,200]+"..."
+    end
+  end
+  def bar_item opts
+    #<li tooltip title="Veja o perfil do artista." data-placement="bottom">
+    #<a href="#"><span class="icon-user-following medium-icon" > </span><br>Perfil</a></li>
+
+    content_tag(:li,
+        link_to(
+          tag(:span, class: "icon-#{opts[:icon]} medium-icon")+
+          tag(:br)+
+          opts[:label]),
+       title: opts[:tooltip],
+       tooltip: "",
+       "data-placement" => "bottom")
+  end
 end
